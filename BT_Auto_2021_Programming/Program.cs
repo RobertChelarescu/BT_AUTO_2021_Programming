@@ -7,7 +7,7 @@ namespace BT_Auto_2021_Programming
         static void Main(string[] args)
         {
             //Course01(args);
-            Course02(args);
+            Homeworkb(args);
         }
 
         static void Course01(string[] args)
@@ -276,5 +276,127 @@ namespace BT_Auto_2021_Programming
             r1.PrintRectangle();
         }
 
+        static void Homework(string[] args)
+        {
+            if (args.Length == 3)
+            {
+                float a = float.Parse(args[0]);
+                float b = float.Parse(args[2]);
+                string op = args[1];
+            }
+            {
+                int a = 0; int b = 0;
+
+                Console.WriteLine("Arithmetic calculator");
+                Console.WriteLine("**********************\n");
+
+                Console.WriteLine("Type a number, and then press Enter");
+                a = Convert.ToInt32(Console.ReadLine());
+
+
+                Console.WriteLine("Type another number, and then press Enter");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Choose an option from the following list:");
+                Console.WriteLine("\ta - Add");
+                Console.WriteLine("\ts - Subtract");
+                Console.WriteLine("\tm - Multiply");
+                Console.WriteLine("\td - Divide");
+
+                Console.Write("Your option? ");
+                switch (Console.ReadLine())
+                {
+
+                    case "a":
+                        Console.WriteLine($"Result is: {a} + {b} = " + (a + b));
+                        break;
+                    case "s":
+                        Console.WriteLine($"Result is: {a} - {b} = " + (a - b));
+                        break;
+                    case "m":
+                        Console.WriteLine($"Result is: {a} * {b} = " + (a * b));
+                        break;
+                    case "d":
+                        Console.WriteLine($"Result is : {a} / {b} = " + (a / b));
+                        break;
+                    default:
+                        Console.WriteLine("3 args are needed!");
+                        break;
+                }
+
+            }
+            Console.ReadKey();
+
+            Console.WriteLine("Problem #2 Calculate the sum of the first 100 numbers higher than 0");
+            int x, sum = 0;
+
+
+            Console.WriteLine("\n\n");
+            Console.WriteLine("Find the sum of first 100 natural numbers:\n");
+            Console.WriteLine("******************************************");
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("The first 100 natural number are:\n");
+            for (x = 1; x <= 100; x++)
+            {
+                sum = sum + x;
+                Console.WriteLine("{0}", x);
+                Console.WriteLine("\nThe Sum is : {0}\n", sum);
+            }
+        }
+        static void Homeworka(string[] args)
+        {
+            static bool checkPalindrome(string str)
+            {
+
+
+                int len = str.Length;
+
+
+                for (int i = 0; i < len / 2; i++)
+                {
+
+
+                    if (str[i] != str[len - i - 1])
+                        return false;
+                }
+                return true;
+            }
+
+            string st = "2002";
+            Console.WriteLine("The number entered is :2002");
+            if (checkPalindrome(st) == true)
+                Console.WriteLine("Yes is a palidrome number");
+            else
+                Console.WriteLine("No, is not a palidrome number");
+            Console.WriteLine("****************************");
+        }
+        static void Homeworkb(string[] args)
+        {
+            bool PrimeNr = true;
+            Console.WriteLine("All the prime numbers lower than 2000 : ");
+
+            for (int i = 2; i <= 2000; i++)
+            {
+                for (int j = 2; j <= 2000; j++)
+                {
+
+                    if (i != j && i % j == 0)
+                    {
+                        PrimeNr = false;
+                        break;
+                    }
+                }
+                if (PrimeNr)
+                {
+                    Console.Write("\t" + i);
+                }
+                PrimeNr = true;
+            }
+            Console.ReadKey();
+        }
     }
-}
+    }
+    
+    
+

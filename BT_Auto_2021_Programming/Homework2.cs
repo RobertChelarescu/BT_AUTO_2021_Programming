@@ -5,8 +5,8 @@ using System.Text;
 namespace BT_Auto_2021_Programming
 {
     class Homework2
-    {           public void Homework(string[] args)
-    {
+    {           public void Homeworka(string[] args)
+            {
         static bool checkPalindrome(string str)
         {
 
