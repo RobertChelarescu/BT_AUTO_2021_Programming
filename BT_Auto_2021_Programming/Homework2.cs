@@ -5,7 +5,7 @@ using System.Text;
 namespace BT_Auto_2021_Programming
 {
     class Homework2
-    {            static void Main(string[] args)
+    {           public void Homework(string[] args)
     {
         static bool checkPalindrome(string str)
         {
@@ -25,7 +25,6 @@ namespace BT_Auto_2021_Programming
         }
 
         string st = "2002";
-
 
         if (checkPalindrome(st) == true)
             Console.WriteLine("Yes is a palidrome number");

@@ -6,7 +6,7 @@ namespace BT_Auto_2021_Programming
 {
     class Homework3
     {
-        public void Homework3(string[] args)
+        public void Homework(string[] args)
         {
             bool PrimeNr = true;
             Console.WriteLine("Prime Numbers : ");
@@ -33,4 +33,3 @@ namespace BT_Auto_2021_Programming
         }
     }
 }
-    

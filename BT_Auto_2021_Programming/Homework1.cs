@@ -6,7 +6,7 @@ namespace BT_Auto_2021_Programming
 {
     class Homework1
     {
-        public static void Main(String[] args)
+         public void Homework(String[] args)
 
         {
             if (args.Length == 3)
@@ -66,7 +66,6 @@ namespace BT_Auto_2021_Programming
             Console.WriteLine("Find the sum of first 100 natural numbers:\n");
             Console.WriteLine("******************************************");
             Console.WriteLine("\n\n");
-
 
             Console.WriteLine("The first 100 natural number are:\n");
             for (x = 1; x <= 100; x++)
