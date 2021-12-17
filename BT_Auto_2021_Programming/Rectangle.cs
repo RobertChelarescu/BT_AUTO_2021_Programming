@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BT_Auto_2021_Programming
+
 {
     class Rectangle
     {
         double length;
         double width;
+
+        public Rectangle(double length, double width)
+        {
+            this.length = length;
+            this.width = width;
+        }
+
+        public Rectangle()
+        {
+
+        }
 
         public void SetSize(double length, double width)
         {
