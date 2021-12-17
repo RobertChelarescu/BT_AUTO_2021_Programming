@@ -1,7 +1,8 @@
 {
   "profiles": {
     "BT_Auto_2021_Programming": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "Eur 100 4.99"
     }
   }
 }

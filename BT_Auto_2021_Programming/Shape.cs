@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BT_Auto_2021_Programming
 {
-    public class Shape
+    class Shape
     {
 
     }
