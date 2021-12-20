@@ -45,35 +45,10 @@ namespace BT_Auto_2021_Programming
         {
             return year;
         }
-
-
-        public void SetTitle(String title)
-        {
-            this.title = title;
-        }
-        public void SetAuthor(String author)
-        {
-            this.author = author;
-        }
-        public void SetPrice(double price)
-        {
-            this.price = price;
-        }
-        public void SetPublisher(String publisher)
-        {
-            this.publisher = publisher;
-        }
-
-        public void SetYear(int year)
-        {
-            this.year = year;
-        }
-
-        public void PrintBook()
+                        public void PrintBook()
 
         {
             Console.WriteLine("Book:" + title + "( Price: " + price +" lei "+")" + publisher + year);
-
         }
 
     }
