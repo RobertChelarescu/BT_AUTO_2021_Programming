@@ -11,7 +11,8 @@ namespace BT_Auto_2021_Programming
             //Course02(args);
             //Course03(args);
             //Course04();
-            Course05();
+            //Course05();
+            Books(args);
         }
 
         static void Course01(string[] args)
@@ -590,5 +591,15 @@ namespace BT_Auto_2021_Programming
             Console.WriteLine("By converting {0} {1} into RON we obtain {2} RON", amount, currency, amount * conversionRate);
         }
 
+        public static void Books(string[] args)
+        {
+            Book Book1 = new Book (" Medicina Spirituala",33,"Alberto Villoldo", " Vidia ", 2015);
+            Book1.PrintBook();
+
+            Author Author1 = new Author("Alberto Villoldo", "albertovilloldo@gmail.com");
+            Author1.PrintAuthor();
+        }
+        
+        
     }
 }
