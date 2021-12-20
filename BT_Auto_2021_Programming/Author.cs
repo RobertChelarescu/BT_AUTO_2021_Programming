@@ -22,15 +22,7 @@ namespace BT_Auto_2021_Programming
         {
             return email;
         }
-        public void SetName(String title)
-        {
-            this.name = name;
-        }
-        public void SetEmail(String author)
-        {
-            this.email = email;
-        }
-
+       
         public void PrintAuthor()
         {
            Console.WriteLine( "Author:" + name + " Email adress:  " + email);
