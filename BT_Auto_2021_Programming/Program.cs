@@ -12,7 +12,8 @@ namespace BT_Auto_2021_Programming
             //Course03(args);
             //Course04();
             //Course05();
-            Library(args);
+            // Library(args);
+            GetVolume(args);
         }
 
         static void Course01(string[] args)
@@ -599,7 +600,18 @@ namespace BT_Auto_2021_Programming
             Author Author1 = new Author("Alberto Villoldo", "albertovilloldo@gmail.com");
             Author1.PrintAuthor();
         }
-        
-        
+        public static void GetVolume(string []args)
+
+        {
+            GetVolume a=new GetVolume();
+            Console.WriteLine("Cube Volume=" + a.GetVolumec(10.0));
+            Console.WriteLine("Sphere Volume=" + a.GetVolumec(9));
+            Console.WriteLine("Pyramid Volume=" + a.GetVolumec(6.0,5));
+            Console.WriteLine("Cylinder Volume=" + a.GetVolumec(9.0,4));
+            Console.WriteLine("Torus Volume=" + a.GetVolumec(5.0,8));
+
+
+        }
+
     }
 }
