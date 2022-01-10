@@ -4,12 +4,18 @@ using System.Text;
 
 namespace BT_Auto_2021_Programming
 {
-    class Shape
+    class Shape : AbstractShape, IDisposable
     {
 
         ConsoleColor color;
+        string test;
 
-        public virtual void Draw()
+        protected void Test()
+        {
+
+        }
+
+        public override void Draw()
         {
             Console.WriteLine("We are drawing a shape!");
         }
@@ -34,6 +40,15 @@ namespace BT_Auto_2021_Programming
             return "This is a generic shape !!";
         }
 
+        public override void Color()
+        {
+            Console.WriteLine("Coloring a shape");
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("Dispoing object!");
+            test = "";
+        }
     }
 }
-
