@@ -3,6 +3,7 @@ using System;
 
 namespace NUnit_Auto_2022
 {
+
     [TestFixture(15, 35)]
     [TestFixture(25, 22)]
     public class Tests

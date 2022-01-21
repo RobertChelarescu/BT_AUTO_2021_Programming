@@ -18,6 +18,7 @@ namespace BT_Auto_2021_Programming
                     bld.GetNumberOfRooms();
                     bld.TotalCapacity();
                     bld.PrintBuilding();
+                    
                 }
                 catch (Exception ex)
                 {
