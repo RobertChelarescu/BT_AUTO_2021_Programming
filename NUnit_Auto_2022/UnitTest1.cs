@@ -6,13 +6,13 @@ namespace NUnit_Auto_2022
 
     [TestFixture(15, 35)]
     [TestFixture(25, 22)]
-    public class Tests
+    public class Testis
     {
 
         int x;
         int y;
 
-        public Tests(int x, int y)
+        public Testis(int x, int y)
         {
             this.x = x;
             this.y = y;

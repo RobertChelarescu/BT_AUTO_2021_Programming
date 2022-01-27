@@ -33,18 +33,11 @@ namespace NUnit_Auto_2022
         }
 
 
-       [TestCase("robert.chelarescu", "automation2021", "automation2021", "Chelarescu","Robert","robert.chelarescu@yahoo.com","Romanian","","","","","","","")]
-       [TestCase("robert.chelarescu", " ", " ", "Chelarescu", "Robert", "robert.chelarescu@yahoo.com", "Romanian","", "Password is required!", "", "", "", "", "")]
-       //[TestCase("", "", "automation2021", "Chelarescu", "Robert", "robert.chelarescu@yahoo.com", "Romanian" ,"Username is required!", "Password is required!","", "Email is required!","","Romanian", "You need to accept our T&C!")]
-       //[TestCase("robert.chelarescu", "automation2021", "automation2021", "C", "Robert", "robert.chelarescu@yahoo.com", "Romanian", "", "", "", "Minimum of 2 characters is required!", "", "", "")]
-      // [TestCase("robert.chelarescu", "automation2021", "automation2021", "Cccccccccccccccccccccccccccccccccccc","Robert","robert.chelarescu@yahoo.com","Romanian","","","", "Maximum of 35 characters allowed!", "","","")]
-      // [TestCase("robert.chelarescu", "automation2021", "automation2021", "Che&Co", "Robert", "robert.chelarescu@yahoo.com", "Romanian", "", "", "", "2 to 35 letters and '-' only.", "", "", "")]
-      // [TestCase("robert.chelarescu", "automation2021", "automation2021", "Chelarescu","Robert","robert.chelarescu","Romanian","","","","","", "Invalid email address!", "")]
-         
-        
-        [Test]
+       [TestCase("robert.chelarescu", "automation2021", "automation2021", "Chelarescu","Robert","robert.chelarescu@yahoo.com","19.01.1983","Romanian","","","","","","","","")]
+       [TestCase("robert.chelarescu", "", "", "Chelarescu", "Robert", "robert.chelarescu@yahoo.com","19.01.1983", "Romanian","", "Password is required!", "", "", "", "", "","")]
+       
 
-        public void Testregistration(string username, string pass, string confpass, string firstname, string lastname, string email, string nationality,string usrnameError,string passwError,string confrmpassError,string firstnamError,string lastnamError,string emaillError, string termcondError)
+        public void Testregistration(string username, string pass, string confpass, string firstname, string lastname, string email,string dateofbirth, string nationality,string usrnameError,string passwError,string confrmpassError,string firstnamError,string lastnamError,string emaillError, string dateofbirthError,string nationalityError)
 
         {
             Console.WriteLine(url);
@@ -58,48 +51,46 @@ namespace NUnit_Auto_2022
 
 
             var enterUsername = driver.FindElement(By.Id("input-username"));
-            enterUsername.SendKeys("robert.chelarescu");
+            //enterUsername.SendKeys("robert.chelarescu");
             
 
             var enterPassword = driver.FindElement(By.Id("input-password"));
-            enterPassword.SendKeys("automation2021");
+           // enterPassword.SendKeys("automation2021");
             
 
             
 
             var enterConfirmPassword = driver.FindElement(By.Id("input-password-confirm"));
-            enterConfirmPassword.SendKeys("automation2021");
-            
+            // enterConfirmPassword.SendKeys("automation2021");
 
-            //RadioButtons categories = new RadioButtons(driver, driver.FindElements(By.XPath("/html/body/div/div/div[2]/div/div[3]/div/div/form/div[6]/label")));
-
-            //categories.SelectValue("Mr");
+            var titlMr = driver.FindElement(By.XPath("/html/body/div/div/div[2]/div/div[3]/div/div/form/div[6]/div/div[1]/input"));
+            var titlMs = driver.FindElement(By.XPath("/html/body/div/div/div[2]/div/div[3]/div/div/form/div[6]/div/div[2]/input"));
 
             var radioBtn = driver.FindElement(By.ClassName("form-check-input"));
             radioBtn.Click();
             
 
             var enterFirstName = driver.FindElement(By.Id("input-first-name"));
-            enterFirstName.SendKeys("Chelarescu");            
+            //enterFirstName.SendKeys("Chelarescu");            
             
 
             var enterLastName = driver.FindElement(By.Id("input-last-name"));
-            enterLastName.SendKeys("Robert");           
+            //enterLastName.SendKeys("Robert");           
             
 
             var enterEmail = driver.FindElement(By.Id("input-email"));
-            enterEmail.SendKeys("robert.chelarescu@yahoo.com");
+            //enterEmail.SendKeys("robert.chelarescu@yahoo.com");
                         
 
             var enterDateofBirth = driver.FindElement(By.Id("input-dob"));
-            enterDateofBirth.Click();
+            //enterDateofBirth.Click();
             
 
-            var selectMonth = driver.FindElement(By.ClassName("react-datepicker__current-month"));
-            selectMonth.Click();
+            //var selectMonth = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__header > div.react-datepicker__current-month"));
+            //selectMonth.Click();
             
 
-            var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(4) > div.react-datepicker__day.react-datepicker__day--019"));
+            var selectDate = driver.FindElement(By.Id("input-dob"));
             selectDate.Click();           
 
 
@@ -146,6 +137,9 @@ namespace NUnit_Auto_2022
             enterEmail.Clear();
             enterEmail.SendKeys(email);
 
+            enterDateofBirth.Clear();
+            enterDateofBirth.SendKeys(dateofbirth);
+
            
             var submit = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(13) > div.text-left.col-lg > button"));
             submit.Submit();
@@ -155,10 +149,7 @@ namespace NUnit_Auto_2022
             Assert.AreEqual(firstnamError, firstnameError.Text);
             Assert.AreEqual(lastnamError, lastnameError.Text);
             Assert.AreEqual(emaillError, emailError.Text);
-            Assert.AreEqual(termcondError, termError.Text);
-
-
-
+           
         }
    
         [TearDown]

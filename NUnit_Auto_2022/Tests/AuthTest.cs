@@ -13,7 +13,7 @@ namespace NUnit_Auto_2022.Tests
     {
         IWebDriver driver;
 
-       string url = NuGet.Frameworks.FrameworkConstants.GetUrl();
+       //string url = NuGet.Frameworks.FrameworkConstants.GetUrl();
 
         [SetUp]
         public void Setup()
@@ -24,7 +24,7 @@ namespace NUnit_Auto_2022.Tests
         [Test]
         public void BasicAuth()
         {
-            driver.Navigate().GoToUrl(url + "login");
+           // driver.Navigate().GoToUrl(url + "login");
             LoginPage lp = new LoginPage(driver);
             Assert.AreEqual("Authentication", lp.CheckPage());
             lp.Login("user1", "pass1");
