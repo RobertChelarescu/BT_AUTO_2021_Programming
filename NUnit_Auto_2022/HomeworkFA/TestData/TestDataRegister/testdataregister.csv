@@ -1,0 +1,4 @@
+﻿username,password,confirmPass,mr,mis,firstName,lastName,email,dateofbirth,nationality,terms,usernameError,passwordError,confirmPassError,firstNameError,lastNameError,emailError,termsError
+Robert,robertpass,robertpass,true,false,Chelarescu,Robert,robert@yahoo.com,19/06/1983,Romanian,true, , , , , , , 
+robert,robertpass1,robertpass1,true,false,Chelarescu,Robert,robert1@yahoo.com,19/06/1983,Romanian,true, , , , , , , 
+Roberto,robertpass2,robertpass2,false,false,Chelarescu,Robert,robert@yahoo.com,19/06/1983,Romanian,true, , , , , , , 

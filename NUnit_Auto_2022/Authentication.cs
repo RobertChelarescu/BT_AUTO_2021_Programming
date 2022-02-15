@@ -1,15 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium.Support.UI;
-using System.Threading;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using Microsoft.Edge.SeleniumTools;
 using OpenQA.Selenium.Interactions;
+using System;
+using System.Threading;
 
 namespace NUnit_Auto_2022
 {
@@ -29,7 +24,7 @@ namespace NUnit_Auto_2022
         public void Setup()
         {
             // Chrome Options
-            var options = new ChromeOptions();
+            var options = new OpenQA.Selenium.Chrome.ChromeOptions();
             //options.AddArgument("--start-maximized");
             //options.AddArgument("headless");
             options.AddArgument("ignore-certificate-errors");
@@ -40,7 +35,7 @@ namespace NUnit_Auto_2022
             //options.AddExtension("C:\\Users\\alex\\Downloads\\extension_4_42_0_0.crx");
 
             // Firefox Options
-            var firefoxOptions = new FirefoxOptions();
+            var firefoxOptions = new OpenQA.Selenium.Firefox.FirefoxOptions();
             string[] optionList =
             {
                 //"--headless",
@@ -59,7 +54,7 @@ namespace NUnit_Auto_2022
             edgeOptions.AddArguments("args", "['--start-maximized', '--headless']");
             edgeOptions.AddArgument("headless");
 
-            driver = new ChromeDriver(options);
+            driver = new OpenQA.Selenium.Chrome.ChromeDriver(options);
             //driver = new FirefoxDriver(firefoxOptions);
             //driver = new EdgeDriver(edgeOptions);
             driver.Manage().Window.Maximize();

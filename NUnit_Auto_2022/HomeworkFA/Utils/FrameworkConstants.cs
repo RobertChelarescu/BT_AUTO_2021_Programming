@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NUnit_Auto_2022.Utilities
+namespace NUnit_Auto_2022.HomeworkFA.Utils
 {
-    public class FrameworkConstants
+    class FrameworkConstants
     {
         const string extensionPath = "Other\\ExtensionFile";
 
         static Dictionary<string, string> configData = Utils.ReadConfig("config.properties");
-        static string protocol = configData["protocol"];
         static string hostname = configData["hostname"];
+        static string protocol = configData["protocol"];        
         static string port = configData["port"];
-        static string path = configData["apppath"];
+        static string apppath = configData["apppath"];
         public static string browserProxy = configData["proxyserver"];
         public static bool startHeadless = GetHeadlessConfig();
         public static bool useProxy = Boolean.Parse(configData["useproxy"]);
@@ -23,7 +23,7 @@ namespace NUnit_Auto_2022.Utilities
 
         public static string GetUrl()
         {
-            return String.Format("{0}://{1}:{2}{3}", protocol, hostname, port, path);
+            return String.Format("{0}://{1}:{2}{3}", protocol, hostname, port, apppath);
         }
 
         public static string GetExtensionName(WebBrowsers browserType)
@@ -41,11 +41,7 @@ namespace NUnit_Auto_2022.Utilities
             }
         }
 
-        // returns how the browser will start in regards to headless
-        // if there is an environment variable of type env = local, then will start normal
-        // if there is an environment variable of type env but not local, will start headless
-        // if there is no environment varible of type env get the config from the config.properties
-        private static bool GetHeadlessConfig()
+           private static bool GetHeadlessConfig()
         {
             foreach (string key in Environment.GetEnvironmentVariables().Keys)
             {
@@ -62,7 +58,7 @@ namespace NUnit_Auto_2022.Utilities
                         return false;
                     }
                 }
-                //Console.WriteLine("KEY {0}, VALUE {1}", key, Environment.GetEnvironmentVariables()[key]);
+               
             }
             Console.WriteLine("No env variable, reading from file");
             return Boolean.Parse(configData["headless"]);

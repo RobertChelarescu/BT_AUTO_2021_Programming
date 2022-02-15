@@ -12,6 +12,7 @@
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.16.2" />
     <PackageReference Include="Microsoft.Edge.SeleniumTools" Version="3.141.2" />
+    <PackageReference Include="NPOI" Version="2.5.5" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
@@ -21,10 +22,11 @@
     <PackageReference Include="Selenium.WebDriver.GeckoDriver.Win64" Version="0.30.0.1" />
     <PackageReference Include="Selenium.WebDriver.MicrosoftDriver" Version="17.17134.0" />
     <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="97.0.1072.55" />
+    <PackageReference Include="Sentry" Version="3.13.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="PageModels\PageFactory\" />
-  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y &quot;$(ProjectDir)\*.properties&quot; &quot;$(ProjectDir)$(OutDir)\&quot; &amp;&#xD;&#xA;xcopy /y &quot;$(ProjectDir)\TestData\*.*&quot; &quot;$(ProjectDir)$(OutDir)\TestData\*.*&quot;" />
+  </Target>
 
 </Project>
