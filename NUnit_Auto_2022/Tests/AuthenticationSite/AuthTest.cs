@@ -10,9 +10,12 @@ using System.Text;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using MySql.Data.MySqlClient;
 
 namespace NUnit_Auto_2022.Tests
 {
+
+    //[Parallelizable(ParallelScope.Children)]
     class AuthTest : BaseTest
     {
 
@@ -93,8 +96,49 @@ namespace NUnit_Auto_2022.Tests
 
         }
 
+        private static IEnumerable<TestCaseData> GetCredentialsDb()
+        {
+
+            // connecting to DB 
+            using (MySqlConnection con = new MySqlConnection(FrameworkConstants.decryptedCon))
+            {
+                //opening connection
+                con.Open();
+                // prepare to run the query in the DB
+                string query = "select username, password from test.credentialsAG;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                //run the query in the db and get the data row by row
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return new TestCaseData(reader["username"].ToString(), reader["password"].ToString());
+                    }
+                }
+
+            }
+
+        }
+
+        private static IEnumerable<TestCaseData> GetCredentialsDbEf()
+        {
+            /*            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
+                        string conDetails = Utils.Decrypt(connString.ConnectionStrings.DefaultConnection, "btauto2022");*/
+            //Map the DB table to EF model
+            using (var context = new Other.ExtensionFile.CredentialsDbContext(FrameworkConstants.decryptedCon))
+            {
+                var credentials = context.credentialsAG;
+                foreach (var cred in credentials)
+                {
+                    yield return new TestCaseData(cred.Username, cred.Password);
+                }
+            }
+        }
+
         // Test auth with Page Object model
-        [Test, TestCaseSource("TestData\\credentials.csv")]
+        [Category("AuthWithDb")]
+        [Category("Smoke")]
+        [Test, TestCaseSource("GetCredentialsDb"), Order(1)]
         public void BasicAuth(string username, string password)
         {
             driver.Navigate().GoToUrl(url + "login");
@@ -103,6 +147,7 @@ namespace NUnit_Auto_2022.Tests
             PageModels.POM.LoginPage lp = new PageModels.POM.LoginPage(driver);
             Assert.AreEqual("Authentication", lp.CheckPage());
             lp.Login(username, password);
+
         }
 
         private static string[] GetUsername = new string[]
@@ -116,7 +161,9 @@ namespace NUnit_Auto_2022.Tests
         };
 
         // Test auth with Page factory
-        [Test]
+        [Category("AuthPageFactory")]
+        [Test, Order(2), Category("Smoke")]
+        //[Parallelizable(ParallelScope.Self)]
         public void BasicAuthPf([ValueSource("GetUsername")] string username, [ValueSource("GetPassword")] string password)
         {
             driver.Navigate().GoToUrl(url + "login");

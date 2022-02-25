@@ -10,6 +10,7 @@ namespace NUnit_Auto_2022.Utilities
 {
     public class Browsers
     {
+       
         // Return a driver, based on the enum WebBrowsers and set up the options baed on the cfg file
         public static IWebDriver GetDriver(WebBrowsers browserType)
         {
@@ -32,6 +33,7 @@ namespace NUnit_Auto_2022.Utilities
                         {
                             options.AddArgument("ignore-certificate-errors");
                         }
+                        options.AddArgument("no-sandbox");
                         // Proxy definition
                         var proxy = new Proxy
                         {
@@ -96,11 +98,6 @@ namespace NUnit_Auto_2022.Utilities
                     }
 
             }
-        }
-
-        internal static IWebDriver GetDriver(object edge)
-        {
-            throw new NotImplementedException();
         }
 
 

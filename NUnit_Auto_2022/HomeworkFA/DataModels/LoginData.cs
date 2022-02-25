@@ -13,6 +13,7 @@ namespace NUnit_Auto_2022.HomeworkFA.DataModels
 		[XmlElement(ElementName = "username")]
 		public string User { get; set; }
 
+
 		[XmlElement(ElementName = "password")]
 		public string Pass { get; set; }
 

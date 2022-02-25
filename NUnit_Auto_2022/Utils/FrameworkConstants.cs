@@ -20,6 +20,7 @@ namespace NUnit_Auto_2022.Utilities
         public static bool ignoreCertErr = Boolean.Parse(configData["ignorecerterr"]);
         public static bool startWithExtension = Boolean.Parse(configData["extension"]);
         public static string configBrowser = configData["browser"];
+        public static string decryptedCon = Utils.Decrypt(Utils.JsonRead<DataModels.DbConnString>("appsettings.json").ConnectionStrings.DefaultConnection, "btauto2022");
 
         public static string GetUrl()
         {
